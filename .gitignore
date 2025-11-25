@@ -1,0 +1,12 @@
+# ignore all .ds_store files in the repository
+*.DS_Store
+# ignore all thumbs.db files
+*.Thumbs.db
+# ignore all desktop.ini files
+*.Desktop.ini
+# ignore all log files
+*.log
+# ignore all temp files
+*.tmp
+# ignore all swap files
+*.swp
