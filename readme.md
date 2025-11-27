@@ -226,7 +226,7 @@ Watch free demo trial lectures on YouTube: [Bioinformatics Ka Chilla Playlist](h
 
 ### Course Instructor
 
-**M Aammar Tufail**
+**Dr. Muhammad Aammar Tufail**
 
 ### Email
 
