@@ -10,6 +10,13 @@ APT (Advanced Package Tool) is the package manager for Debian-based systems like
 ### Basic Commands
 
 ```bash
+sudo apt-get update        # Update package list
+sudo apt-get upgrade       # Upgrade all installed packages
+```
+> **`sudo`** means "superuser do" and is used to run commands with administrative privileges.
+> **`apt-get`** is the command-line tool for handling packages. **`apt`** means `Advanced Package Tool` get means `get the package`.
+
+```bash
 # Update package list
 sudo apt-get update
 
@@ -67,16 +74,16 @@ sudo apt-get install vcftools
 sudo apt-get install fastqc
 
 # Text editors
-sudo apt-get install vim nano
+sudo apt-get install vim nano emacs
 ```
 
 #### Required Dependencies
 
 ```bash
-# Compression libraries
-sudo apt-get install zlib1g-dev
-sudo apt-get install libbz2-dev
-sudo apt-get install liblzma-dev
+# Compression libraries only if needed
+# sudo apt-get install zlib1g-dev
+# sudo apt-get install libbz2-dev
+# sudo apt-get install liblzma-dev
 
 # R programming environment
 sudo apt-get install r-base r-base-dev
@@ -98,7 +105,8 @@ Reading package lists... Done
 **Installing a Single Package:**
 
 ```bash
-codanics@PC-codanics:~$ sudo apt-get install samtools
+sudo apt-get install samtools
+```
 Reading package lists... Done
 Building dependency tree... Done
 The following NEW packages will be installed:
@@ -106,26 +114,26 @@ The following NEW packages will be installed:
 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
 Do you want to continue? [Y/n] y
 Setting up samtools (1.13-4) ...
-```
+
 
 **Verifying Installation:**
 
 ```bash
-codanics@PC-codanics:~$ samtools --version
+samtools --version
 samtools 1.13
 ```
 
 **Searching for Packages:**
 
 ```bash
-codanics@PC-codanics:~$ apt-cache search fastqc
+apt-cache search fastqc
 fastqc - quality control for high throughput sequence data
 ```
 
 **Installing Multiple Packages:**
 
 ```bash
-codanics@PC-codanics:~$ sudo apt-get install bedtools bcftools vcftools
+sudo apt-get install bedtools bcftools vcftools
 ```
 
 ---
@@ -145,6 +153,8 @@ chmod +x installer.sh
 
 # Step 3: Run the installer
 ./installer.sh
+# or
+bash installer.sh
 ```
 
 ### Common Execution Methods
@@ -190,13 +200,13 @@ Miniconda is a minimal conda installer, essential for managing bioinformatics en
 
 ```bash
 # Download the installer
-codanics@PC-codanics:~$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
 # Make it executable
-codanics@PC-codanics:~$ chmod +x Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
 
 # Run the installer
-codanics@PC-codanics:~$ bash Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
 **Installation Prompts:**
@@ -220,10 +230,10 @@ Please, press ENTER to continue
 
 ```bash
 # Restart terminal or run:
-codanics@PC-codanics:~$ source ~/.bashrc
+source ~/.bashrc
 
 # Verify installation
-codanics@PC-codanics:~$ conda --version
+conda --version
 conda 23.11.0
 ```
 
@@ -235,16 +245,16 @@ SPAdes is a widely-used genome assembly toolkit.
 
 ```bash
 # Download SPAdes
-codanics@PC-codanics:~/tools$ wget http://cab.spbu.ru/files/release3.15.5/SPAdes-3.15.5-Linux.tar.gz
+wget http://cab.spbu.ru/files/release3.15.5/SPAdes-3.15.5-Linux.tar.gz
 
 # Extract the archive
-codanics@PC-codanics:~/tools$ tar -xzf SPAdes-3.15.5-Linux.tar.gz
+tar -xzf SPAdes-3.15.5-Linux.tar.gz
 
 # Navigate to binary directory
-codanics@PC-codanics:~/tools$ cd SPAdes-3.15.5-Linux/bin/
+cd SPAdes-3.15.5-Linux/bin/
 
 # Test the installation
-codanics@PC-codanics:~/tools/SPAdes-3.15.5-Linux/bin$ ./spades.py --version
+./spades.py --version
 SPAdes v3.15.5
 ```
 
@@ -252,14 +262,14 @@ SPAdes v3.15.5
 
 ```bash
 # Add to ~/.bashrc
-codanics@PC-codanics:~$ echo 'export PATH="/home/codanics/tools/SPAdes-3.15.5-Linux/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/home/codanics/tools/SPAdes-3.15.5-Linux/bin:$PATH"' >> ~/.bashrc
 
 # Reload configuration
-codanics@PC-codanics:~$ source ~/.bashrc
+source ~/.bashrc
 
 # Verify system-wide access
-codanics@PC-codanics:~$ spades.py --version
-SPAdes v3.15.5
+spades.py --version
+# SPAdes v3.15.5
 ```
 
 ---
@@ -270,21 +280,21 @@ BLAST+ is the essential tool for sequence similarity searches.
 
 ```bash
 # Download BLAST+ archive
-codanics@PC-codanics:~/tools$ wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.14.0+-x64-linux.tar.gz
+wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.14.0+-x64-linux.tar.gz
 
 # Extract the archive
-codanics@PC-codanics:~/tools$ tar -xzf ncbi-blast-2.14.0+-x64-linux.tar.gz
+tar -xzf ncbi-blast-2.14.0+-x64-linux.tar.gz
 
 # Add to PATH
-codanics@PC-codanics:~/tools$ echo 'export PATH="/home/codanics/tools/ncbi-blast-2.14.0+/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/home/codanics/tools/ncbi-blast-2.14.0+/bin:$PATH"' >> ~/.bashrc
 
 # Reload configuration
-codanics@PC-codanics:~/tools$ source ~/.bashrc
+source ~/.bashrc
 
 # Verify installation
-codanics@PC-codanics:~$ blastn -version
-blastn: 2.14.0+
- Package: blast 2.14.0, build Jan 12 2023 12:34:56
+blastn -version
+# blastn: 2.14.0+
+#  Package: blast 2.14.0, build Jan 12 2023 12:34:56
 ```
 
 ---
