@@ -10,3 +10,6 @@
 *.tmp
 # ignore all swap files
 *.swp
+
+#ignrore*blog.html files
+*blog.html
