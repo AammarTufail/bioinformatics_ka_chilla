@@ -13,3 +13,5 @@
 
 #ignrore*blog.html files
 *blog.html
+*/*quiz*.html
+*/*logo.png
