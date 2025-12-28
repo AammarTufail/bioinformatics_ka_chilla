@@ -10,6 +10,8 @@
 *.tmp
 # ignore all swap files
 *.swp
+*fastq.gz
+*fastq
 
 #ignrore*blog.html files
 *blog.html
