@@ -2,6 +2,23 @@ echo "Setting up conda environments for short read quality control and multiqc"
 # initialize conda for this script
 eval "$(conda shell.bash hook)"
 
+# install grabseqs
+conda create -n grabseqs -y
+conda activate grabseqs
+# conda install grabseqs -c louiejtaylor -c bioconda -c conda-forge -y
+# mamba install grabseqs -c louiejtaylor -c bioconda -c conda-forge -y
+conda install python=3.9 -y
+pip install grabseqs
+# dependencies
+conda install conda-forge::pigz -y
+conda install bioconda::sra-tools -y
+
+# # to download a sequence
+# grabseqs sra SRR35136585
+# # to get whole project
+# grabseqs sra SRP610834
+# # srr file with -t
+# grabseqs sra -t 4 -m metadata.csv SRR8893090
 # remove previous conda environment if exists
 conda env remove -n 01_short_read_qc -y
 conda env remove -n 02_multiqc -y
